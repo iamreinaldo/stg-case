@@ -1,0 +1,57 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=airflow
+      - POSTGRES_PASSWORD=airflow
+      - POSTGRES_DB=airflow
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  webserver:
+    image: apache/airflow:2.9.2
+    restart: always
+    depends_on:
+      - postgres
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__WEBSERVER__RBAC=True
+      - AIRFLOW__API__AUTH_BACKENDS=airflow.api.auth.backend.basic_auth
+      - _PIP_ADDITIONAL_REQUIREMENTS=snowflake-connector-python>=3.10.0 pandas pyarrow openpyxl
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
+      - ./data_lake:/opt/airflow/data_lake
+      - ./logs:/opt/airflow/logs
+    ports:
+      - "8080:8080"
+    command: bash -c "airflow db init && airflow users create --username admin --password admin --firstname Admin --lastname User --role Admin --email admin@example.com && airflow webserver"
+    env_file:
+      - ./.env
+
+  scheduler:
+    image: apache/airflow:2.9.2
+    restart: always
+    depends_on:
+      - webserver
+      - postgres
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - _PIP_ADDITIONAL_REQUIREMENTS=snowflake-connector-python>=3.10.0 pandas pyarrow openpyxl
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
+      - ./data_lake:/opt/airflow/data_lake
+      - ./logs:/opt/airflow/logs
+    command: bash -c "airflow scheduler"
+    env_file:
+      - ./.env
+
+
+volumes:
+  postgres_data:

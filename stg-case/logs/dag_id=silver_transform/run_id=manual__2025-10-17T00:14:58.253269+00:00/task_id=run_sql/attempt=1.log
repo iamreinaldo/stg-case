@@ -1,0 +1,79 @@
+[2025-10-17T00:14:59.337+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-17T00:14:59.350+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: silver_transform.run_sql manual__2025-10-17T00:14:58.253269+00:00 [queued]>
+[2025-10-17T00:14:59.353+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: silver_transform.run_sql manual__2025-10-17T00:14:58.253269+00:00 [queued]>
+[2025-10-17T00:14:59.353+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-10-17T00:14:59.358+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_sql> on 2025-10-17 00:14:58.253269+00:00
+[2025-10-17T00:14:59.363+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=207) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-10-17T00:14:59.363+0000] {standard_task_runner.py:63} INFO - Started process 210 to run task
+[2025-10-17T00:14:59.362+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'silver_transform', 'run_sql', 'manual__2025-10-17T00:14:58.253269+00:00', '--job-id', '92', '--raw', '--subdir', 'DAGS_FOLDER/silver_transform_dag.py', '--cfg-path', '/tmp/tmpqqqn11li']
+[2025-10-17T00:14:59.364+0000] {standard_task_runner.py:91} INFO - Job 92: Subtask run_sql
+[2025-10-17T00:14:59.371+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-10-17T00:14:59.384+0000] {task_command.py:426} INFO - Running <TaskInstance: silver_transform.run_sql manual__2025-10-17T00:14:58.253269+00:00 [running]> on host 728de341d734
+[2025-10-17T00:14:59.416+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='silver_transform' AIRFLOW_CTX_TASK_ID='run_sql' AIRFLOW_CTX_EXECUTION_DATE='2025-10-17T00:14:58.253269+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-17T00:14:58.253269+00:00'
+[2025-10-17T00:14:59.417+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-17T00:14:59.423+0000] {connection.py:399} INFO - Snowflake Connector for Python Version: 3.10.1, Python Version: 3.12.4, Platform: Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+[2025-10-17T00:14:59.423+0000] {connection.py:1239} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2025-10-17T00:15:00.022+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+USE WAREHOUSE COMPUTE_WH
+[2025-10-17T00:15:00.110+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T00:15:00.111+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+USE DATABASE COVID_DB
+[2025-10-17T00:15:00.204+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T00:15:00.205+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+CREATE SCHEMA IF NOT EXISTS SILVER
+[2025-10-17T00:15:00.325+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T00:15:00.326+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+CREATE OR REPLACE TABLE SILVER.CASES_CLEAN AS
+SELECT *
+FROM (
+  SELECT
+    UPPER("ISO_CODE") AS iso_code,
+    CASE
+      WHEN TYPEOF("DATE") = 'DATE' THEN "DATE"
+      WHEN TYPEOF("DATE") LIKE 'TIMESTAMP%' THEN TO_DATE("DATE")
+      WHEN TRY_TO_NUMBER(TO_VARCHAR("DATE")) IS NOT NULL THEN
+        CASE
+          WHEN TRY_TO_NUMBER(TO_VARCHAR("DATE")) >= 1000000000000000000 THEN TO_DATE(TO_TIMESTAMP_...
+[2025-10-17T00:15:00.452+0000] {connection.py:762} INFO - closed
+[2025-10-17T00:15:00.524+0000] {connection.py:768} INFO - No async queries seem to be running, deleting session
+[2025-10-17T00:15:00.616+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-17T00:15:00.618+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/silver_transform_dag.py", line 283, in run_sql
+    cs.execute(stmt)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 1080, in execute
+    Error.errorhandler_wrapper(self.connection, self, error_class, errvalue)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 290, in errorhandler_wrapper
+    handed_over = Error.hand_to_other_handler(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 345, in hand_to_other_handler
+    cursor.errorhandler(connection, cursor, error_class, error_value)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 221, in default_errorhandler
+    raise error_class(
+snowflake.connector.errors.ProgrammingError: 001044 (42P13): 01bfc24f-0001-092d-0000-c8f10002a65a: SQL compilation error: error line 7 at position 11
+Invalid argument types for function 'TYPEOF': (TIMESTAMP_NTZ(9))
+[2025-10-17T00:15:00.634+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=silver_transform, task_id=run_sql, run_id=manual__2025-10-17T00:14:58.253269+00:00, execution_date=20251017T001458, start_date=20251017T001459, end_date=20251017T001500
+[2025-10-17T00:15:00.645+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 92 for task run_sql (001044 (42P13): 01bfc24f-0001-092d-0000-c8f10002a65a: SQL compilation error: error line 7 at position 11
+Invalid argument types for function 'TYPEOF': (TIMESTAMP_NTZ(9)); 210)
+[2025-10-17T00:15:00.670+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-10-17T00:15:00.682+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-10-17T00:15:00.683+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

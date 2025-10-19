@@ -1,0 +1,295 @@
+RESUMO DOS DATAFRAMES
+Gerado em: 2025-10-14 22:26:41
+====================================================================================================
+
+====================================================================================================
+📘 Cases Dataset
+Linhas: 424793, Colunas: 16
+
+Tipos de dados:
+iso_code                                   object
+continent                                  object
+location                                   object
+date                               datetime64[ns]
+total_cases                               float64
+new_cases                                 float64
+new_cases_smoothed                        float64
+total_deaths                              float64
+new_deaths                                float64
+new_deaths_smoothed                       float64
+total_cases_per_million                   float64
+new_cases_per_million                     float64
+new_cases_smoothed_per_million            float64
+total_deaths_per_million                  float64
+new_deaths_per_million                    float64
+new_deaths_smoothed_per_million           float64
+
+Valores nulos por coluna:
+iso_code                               0
+continent                          26348
+location                               0
+date                                   0
+total_cases                        18093
+new_cases                          19699
+new_cases_smoothed                 20924
+total_deaths                       18093
+new_deaths                         19249
+new_deaths_smoothed                20474
+total_cases_per_million            18093
+new_cases_per_million              19699
+new_cases_smoothed_per_million     20924
+total_deaths_per_million           18093
+new_deaths_per_million             19249
+new_deaths_smoothed_per_million    20474
+
+Duplicados: 0
+
+Estatísticas descritivas:
+        iso_code continent               location                           date   total_cases     new_cases  new_cases_smoothed  total_deaths     new_deaths  new_deaths_smoothed  total_cases_per_million  new_cases_per_million  new_cases_smoothed_per_million  total_deaths_per_million  new_deaths_per_million  new_deaths_smoothed_per_million
+count     424793    398445                 424793                         424793  4.067000e+05  4.050940e+05        4.038690e+05  4.067000e+05  405544.000000         4.043190e+05             4.067000e+05           4.050940e+05                    4.038690e+05              4.067000e+05           405544.000000                    404319.000000
+unique       255         6                    255                            NaN           NaN           NaN                 NaN           NaN            NaN                  NaN                      NaN                    NaN                             NaN                       NaN                     NaN                              NaN
+top     OWID_HIC    Africa  High-income countries                            NaN           NaN           NaN                 NaN           NaN            NaN                  NaN                      NaN                    NaN                             NaN                       NaN                     NaN                              NaN
+freq        3004     94621                   3004                            NaN           NaN           NaN                 NaN           NaN            NaN                  NaN                      NaN                    NaN                             NaN                       NaN                     NaN                              NaN
+mean         NaN       NaN                    NaN  2022-04-14 07:04:34.182483968  7.344550e+06  8.116050e+03        6.754231e+06  8.126435e+04      72.725749         6.127905e+04             7.470361e+06           9.961912e+04                    1.120501e+05              7.323709e+05              682.763818                       625.778325
+min          NaN       NaN                    NaN            2020-01-01 00:00:00  0.000000e+00  0.000000e+00        0.000000e+00  0.000000e+00       0.000000         0.000000e+00             0.000000e+00           0.000000e+00                    0.000000e+00              0.000000e+00                0.000000                         0.000000
+25%          NaN       NaN                    NaN            2021-03-02 00:00:00  6.389000e+03  0.000000e+00        0.000000e+00  4.500000e+01       0.000000         0.000000e+00             9.435338e+04           0.000000e+00                    0.000000e+00              4.130500e+03                0.000000                         0.000000
+50%          NaN       NaN                    NaN            2022-04-14 00:00:00  6.376200e+04  0.000000e+00        4.714000e+03  8.120000e+02       0.000000         0.000000e+00             3.596220e+05           0.000000e+00                    1.386000e+03              1.662050e+05                0.000000                         0.000000
+75%          NaN       NaN                    NaN            2023-05-29 00:00:00  7.595420e+05  0.000000e+00        1.864290e+05  9.591500e+03       0.000000         1.714000e+03             3.814280e+06           0.000000e+00                    4.418200e+04              1.076504e+06                0.000000                         0.372000
+max          NaN       NaN                    NaN            2024-08-06 00:00:00  7.757309e+08  4.423623e+07        6.020346e+09  7.054878e+06  103719.000000         1.442429e+07             1.310684e+08           7.808030e+07                    3.462022e+07              6.524734e+06           893243.000000                    127617.000000
+std          NaN       NaN                    NaN                            NaN  4.464450e+07  2.310944e+05        7.266607e+07  4.407568e+05    1376.810864         4.694661e+05             1.849725e+07           1.020573e+06                    5.286528e+05              1.087532e+06             6542.832424                      2459.101274
+
+Head (5 primeiras linhas):
+  iso_code continent     location       date  total_cases  new_cases  new_cases_smoothed  total_deaths  new_deaths  new_deaths_smoothed  total_cases_per_million  new_cases_per_million  new_cases_smoothed_per_million  total_deaths_per_million  new_deaths_per_million  new_deaths_smoothed_per_million
+0      AFG      Asia  Afghanistan 2020-01-05          0.0        0.0                 NaN           0.0         0.0                  NaN                      0.0                    0.0                             NaN                       0.0                     0.0                              NaN
+1      AFG      Asia  Afghanistan 2020-01-06          0.0        0.0                 NaN           0.0         0.0                  NaN                      0.0                    0.0                             NaN                       0.0                     0.0                              NaN
+2      AFG      Asia  Afghanistan 2020-01-07          0.0        0.0                 NaN           0.0         0.0                  NaN                      0.0                    0.0                             NaN                       0.0                     0.0                              NaN
+3      AFG      Asia  Afghanistan 2020-01-08          0.0        0.0                 NaN           0.0         0.0                  NaN                      0.0                    0.0                             NaN                       0.0                     0.0                              NaN
+4      AFG      Asia  Afghanistan 2020-01-09          0.0        0.0                 NaN           0.0         0.0                  NaN                      0.0                    0.0                             NaN                       0.0                     0.0                              NaN
+
+====================================================================================================
+📘 Country Dataset
+Linhas: 424777, Colunas: 16
+
+Tipos de dados:
+iso_code                       object
+population_density             object
+median_age                    float64
+aged_65_older                 float64
+aged_70_older                 float64
+gdp_per_capita                 object
+extreme_poverty               float64
+cardiovasc_death_rate         float64
+diabetes_prevalence           float64
+female_smokers                float64
+male_smokers                  float64
+handwashing_facilities        float64
+hospital_beds_per_thousand    float64
+life_expectancy               float64
+human_development_index       float64
+population                    float64
+
+Valores nulos por coluna:
+iso_code                      424538
+population_density            424564
+median_age                    424577
+aged_65_older                 424585
+aged_70_older                 424579
+gdp_per_capita                424583
+extreme_poverty               424653
+cardiovasc_death_rate         424582
+diabetes_prevalence           424572
+female_smokers                424631
+male_smokers                  424633
+handwashing_facilities        424682
+hospital_beds_per_thousand    424605
+life_expectancy               424544
+human_development_index       424588
+population                    424538
+
+Duplicados: 424537
+
+Estatísticas descritivas:
+       iso_code population_density  median_age  aged_65_older  aged_70_older gdp_per_capita  extreme_poverty  cardiovasc_death_rate  diabetes_prevalence  female_smokers  male_smokers  handwashing_facilities  hospital_beds_per_thousand  life_expectancy  human_development_index    population
+count       239                213  200.000000     192.000000     198.000000            194       124.000000             195.000000           205.000000      146.000000    144.000000               95.000000                  172.000000       233.000000               189.000000  2.390000e+02
+unique      239                213         NaN            NaN            NaN            194              NaN                    NaN                  NaN             NaN           NaN                     NaN                         NaN              NaN                      NaN           NaN
+top         AFG             54.422         NaN            NaN            NaN      1.803.987              NaN                    NaN                  NaN             NaN           NaN                     NaN                         NaN              NaN                      NaN           NaN
+freq          1                  1         NaN            NaN            NaN              1              NaN                    NaN                  NaN             NaN           NaN                     NaN                         NaN              NaN                      NaN           NaN
+mean        NaN                NaN   30.515500       8.702740       5.478874            NaN        13.986290             264.427605             8.561317       10.819863     32.897917               50.690516                    3.099291        73.725494                 0.722423  3.522294e+07
+std         NaN                NaN    9.107714       6.119515       4.151942            NaN        20.296715             121.534474             4.965202       10.847448     13.668536               32.280746                    2.563063         7.422550                 0.149791  1.378818e+08
+min         NaN                NaN   15.100000       1.144000       0.526000            NaN         0.100000              79.370000             0.990000        0.100000      7.700000                1.188000                    0.100000        53.280000                 0.394000  4.700000e+01
+25%         NaN                NaN   22.275000       3.521250       2.068500            NaN         0.675000             173.490000             5.350000        1.900000     22.350000               20.105000                    1.300000        69.590000                 0.602000  4.005235e+05
+50%         NaN                NaN   29.650000       6.335500       3.864000            NaN         2.500000             245.465000             7.200000        6.300000     32.250000               49.542000                    2.450000        75.050000                 0.740000  5.489744e+06
+75%         NaN                NaN   38.800000      13.990500       8.637750            NaN        21.675000             332.433000            10.790000       19.250000     41.350000               82.871500                    4.202500        79.460000                 0.829000  2.235942e+07
+max         NaN                NaN   48.200000      27.049000      18.493000            NaN        77.600000             724.417000            30.530000       44.000000     78.100000              100.000000                   13.800000        86.750000                 0.957000  1.425887e+09
+
+Head (5 primeiras linhas):
+  iso_code population_density  median_age  aged_65_older  aged_70_older gdp_per_capita  extreme_poverty  cardiovasc_death_rate  diabetes_prevalence  female_smokers  male_smokers  handwashing_facilities  hospital_beds_per_thousand  life_expectancy  human_development_index  population
+0      AFG             54.422        18.6          2.581          1.337      1.803.987              NaN                597.029                 9.59             NaN           NaN                  37.746                        0.50            64.83                    0.511  41128772.0
+1      ALB            104.871        38.0         13.188          8.643     11.803.431              1.1                304.195                10.08             7.1          51.2                     NaN                        2.89            78.57                    0.795   2842318.0
+2      DZA             17.348        29.1          6.211          3.857     13.913.839              0.5                278.364                 6.73             0.7          30.4                  83.741                        1.90            76.88                    0.748  44903228.0
+3      ASM            278.205         NaN            NaN            NaN            NaN              NaN                283.750                  NaN             NaN           NaN                     NaN                         NaN            73.74                      NaN     44295.0
+4      AND            163.755         NaN            NaN            NaN            NaN              NaN                109.135                 7.97            29.0          37.8                     NaN                         NaN            83.73                    0.868     79843.0
+
+====================================================================================================
+📘 Vaccination Dataset
+Linhas: 424793, Colunas: 15
+
+Tipos de dados:
+iso_code                                              object
+date                                          datetime64[ns]
+total_vaccinations                                   float64
+people_vaccinated                                    float64
+people_fully_vaccinated                              float64
+total_boosters                                       float64
+new_vaccinations                                     float64
+new_vaccinations_smoothed                            float64
+total_vaccinations_per_hundred                       float64
+people_vaccinated_per_hundred                        float64
+people_fully_vaccinated_per_hundred                  float64
+total_boosters_per_hundred                           float64
+new_vaccinations_smoothed_per_million                float64
+new_people_vaccinated_smoothed                       float64
+new_people_vaccinated_smoothed_per_hundred           float64
+
+Valores nulos por coluna:
+iso_code                                           0
+date                                               0
+total_vaccinations                            339471
+people_vaccinated                             343755
+people_fully_vaccinated                       346825
+total_boosters                                371287
+new_vaccinations                              353909
+new_vaccinations_smoothed                     229888
+total_vaccinations_per_hundred                339471
+people_vaccinated_per_hundred                 343755
+people_fully_vaccinated_per_hundred           346825
+total_boosters_per_hundred                    371287
+new_vaccinations_smoothed_per_million         229888
+new_people_vaccinated_smoothed                232726
+new_people_vaccinated_smoothed_per_hundred    232726
+
+Duplicados: 69
+
+Estatísticas descritivas:
+        iso_code                           date  total_vaccinations  people_vaccinated  people_fully_vaccinated  total_boosters  new_vaccinations  new_vaccinations_smoothed  total_vaccinations_per_hundred  people_vaccinated_per_hundred  people_fully_vaccinated_per_hundred  total_boosters_per_hundred  new_vaccinations_smoothed_per_million  new_people_vaccinated_smoothed  new_people_vaccinated_smoothed_per_hundred
+count     424793                         424793        8.532200e+04       8.103800e+04             7.796800e+04    5.350600e+04      7.088400e+04               1.949050e+05                    85322.000000                   81038.000000                         77968.000000                53506.000000                          194905.000000                    1.920670e+05                               192067.000000
+unique       255                            NaN                 NaN                NaN                      NaN             NaN               NaN                        NaN                             NaN                            NaN                                  NaN                         NaN                                    NaN                             NaN                                         NaN
+top     OWID_HIC                            NaN                 NaN                NaN                      NaN             NaN               NaN                        NaN                             NaN                            NaN                                  NaN                         NaN                                    NaN                             NaN                                         NaN
+freq        3004                            NaN                 NaN                NaN                      NaN             NaN               NaN                        NaN                             NaN                            NaN                                  NaN                         NaN                                    NaN                             NaN                                         NaN
+mean         NaN  2022-04-14 07:04:34.182483968        5.586737e+08       2.474301e+08             2.274393e+08    1.496342e+08      7.407715e+05               2.840561e+05                      124.203149                      53.478207                            48.654954                   36.280674                            1852.635853                    1.061314e+05                                    5.987399
+min          NaN            2020-01-01 00:00:00        0.000000e+00       0.000000e+00             1.000000e+00    1.000000e+00      0.000000e+00               0.000000e+00                        0.000000                       0.000000                             0.000000                    0.000000                               0.000000                    0.000000e+00                                    0.000000
+25%          NaN            2021-03-02 00:00:00        1.966019e+06       1.047083e+06             9.611105e+05    6.014938e+05      2.031750e+03               2.790000e+02                       44.730000                      27.832500                            21.180000                    5.910000                             106.000000                    4.300000e+01                                    0.001000
+50%          NaN            2022-04-14 00:00:00        1.433742e+07       6.898102e+06             6.179872e+06    5.762572e+06      2.063550e+04               3.885000e+03                      130.420000                      64.300000                            57.830000                   35.820000                             605.000000                    7.720000e+02                                    0.014000
+75%          NaN            2023-05-29 00:00:00        1.160595e+08       5.092946e+07             4.756709e+07    4.005928e+07      1.741590e+05               3.185500e+04                      194.880000                      77.780000                            73.610000                   57.630000                            2405.000000                    9.318000e+03                                    0.073000
+max          NaN            2024-08-06 00:00:00        1.357876e+10       5.631264e+09             5.177943e+09    2.817363e+09      4.967320e+07               4.369181e+07                      410.230000                     129.070000                           126.890000                  150.470000                          117113.000000                    2.107127e+07                                11711.000000
+std          NaN                            NaN        1.835792e+09       7.981031e+08             7.379275e+08    4.343978e+08      3.184912e+06               1.922950e+06                       85.109458                      29.387804                            29.049386                   30.232735                            3118.481659                    7.869095e+05                                  119.564914
+
+Head (5 primeiras linhas):
+  iso_code       date  total_vaccinations  people_vaccinated  people_fully_vaccinated  total_boosters  new_vaccinations  new_vaccinations_smoothed  total_vaccinations_per_hundred  people_vaccinated_per_hundred  people_fully_vaccinated_per_hundred  total_boosters_per_hundred  new_vaccinations_smoothed_per_million  new_people_vaccinated_smoothed  new_people_vaccinated_smoothed_per_hundred
+0      AFG 2020-01-05                 NaN                NaN                      NaN             NaN               NaN                        NaN                             NaN                            NaN                                  NaN                         NaN                                    NaN                             NaN                                         NaN
+1      AFG 2020-01-06                 NaN                NaN                      NaN             NaN               NaN                        NaN                             NaN                            NaN                                  NaN                         NaN                                    NaN                             NaN                                         NaN
+2      AFG 2020-01-07                 NaN                NaN                      NaN             NaN               NaN                        NaN                             NaN                            NaN                                  NaN                         NaN                                    NaN                             NaN                                         NaN
+3      AFG 2020-01-08                 NaN                NaN                      NaN             NaN               NaN                        NaN                             NaN                            NaN                                  NaN                         NaN                                    NaN                             NaN                                         NaN
+4      AFG 2020-01-09                 NaN                NaN                      NaN             NaN               NaN                        NaN                             NaN                            NaN                                  NaN                         NaN                                    NaN                             NaN                                         NaN
+
+====================================================================================================
+📘 Hospital Dataset
+Linhas: 424793, Colunas: 10
+
+Tipos de dados:
+iso_code                                      object
+date                                  datetime64[ns]
+icu_patients                                 float64
+icu_patients_per_million                     float64
+hosp_patients                                float64
+hosp_patients_per_million                    float64
+weekly_icu_admissions                        float64
+weekly_icu_admissions_per_million            float64
+weekly_hosp_admissions                       float64
+weekly_hosp_admissions_per_million           float64
+
+Valores nulos por coluna:
+iso_code                                   0
+date                                       0
+icu_patients                          385698
+icu_patients_per_million              385698
+hosp_patients                         384158
+hosp_patients_per_million             384158
+weekly_icu_admissions                 413814
+weekly_icu_admissions_per_million     413814
+weekly_hosp_admissions                400310
+weekly_hosp_admissions_per_million    400310
+
+Duplicados: 7714
+
+Estatísticas descritivas:
+        iso_code                           date  icu_patients  icu_patients_per_million  hosp_patients  hosp_patients_per_million  weekly_icu_admissions  weekly_icu_admissions_per_million  weekly_hosp_admissions  weekly_hosp_admissions_per_million
+count     424793                         424793  39095.000000              39095.000000   40635.000000               4.063500e+04           10979.000000                       10979.000000            24483.000000                        24483.000000
+unique       255                            NaN           NaN                       NaN            NaN                        NaN                    NaN                                NaN                     NaN                                 NaN
+top     OWID_HIC                            NaN           NaN                       NaN            NaN                        NaN                    NaN                                NaN                     NaN                                 NaN
+freq        3004                            NaN           NaN                       NaN            NaN                        NaN                    NaN                                NaN                     NaN                                 NaN
+mean         NaN  2022-04-14 07:04:34.182483968    661.315897              13904.464416    3913.404897               1.130565e+05             318.263230                        8770.030825             4294.129600                        74595.153902
+min          NaN            2020-01-01 00:00:00      0.000000                  0.000000       0.000000               0.000000e+00               0.000000                           0.000000                0.000000                            0.000000
+25%          NaN            2021-03-02 00:00:00     21.000000               1232.000000     187.000000               1.766500e+04              17.000000                        1060.000000              223.000000                        13715.000000
+50%          NaN            2022-04-14 00:00:00     90.000000               5119.000000     776.000000               6.258200e+04              92.000000                        3916.000000              865.000000                        46716.000000
+75%          NaN            2023-05-29 00:00:00    413.500000              15967.000000    3053.500000               1.450420e+05             353.000000                       11417.500000             3895.500000                       102789.500000
+max          NaN            2024-08-06 00:00:00  28891.000000             180675.000000  154497.000000               1.526846e+06            4838.000000                      224976.000000           153977.000000                       717077.000000
+std          NaN                            NaN   2140.138411              22134.120734    9847.999406               1.483350e+05             514.635046                       13336.728961            10922.279673                        87780.094010
+
+Head (5 primeiras linhas):
+  iso_code       date  icu_patients  icu_patients_per_million  hosp_patients  hosp_patients_per_million  weekly_icu_admissions  weekly_icu_admissions_per_million  weekly_hosp_admissions  weekly_hosp_admissions_per_million
+0      AFG 2020-01-05           NaN                       NaN            NaN                        NaN                    NaN                                NaN                     NaN                                 NaN
+1      AFG 2020-01-06           NaN                       NaN            NaN                        NaN                    NaN                                NaN                     NaN                                 NaN
+2      AFG 2020-01-07           NaN                       NaN            NaN                        NaN                    NaN                                NaN                     NaN                                 NaN
+3      AFG 2020-01-08           NaN                       NaN            NaN                        NaN                    NaN                                NaN                     NaN                                 NaN
+4      AFG 2020-01-09           NaN                       NaN            NaN                        NaN                    NaN                                NaN                     NaN                                 NaN
+
+====================================================================================================
+📘 Tests Dataset
+Linhas: 424793, Colunas: 9
+
+Tipos de dados:
+iso_code                                   object
+date                               datetime64[ns]
+total_tests                               float64
+new_tests                                 float64
+new_tests_per_thousand                    float64
+new_tests_smoothed                        float64
+new_tests_smoothed_per_thousand           float64
+positive_rate                             float64
+tests_units                                object
+
+Valores nulos por coluna:
+iso_code                                0
+date                                    0
+total_tests                        345406
+new_tests                          349390
+new_tests_per_thousand             349390
+new_tests_smoothed                 320828
+new_tests_smoothed_per_thousand    320828
+positive_rate                      328866
+tests_units                        318005
+
+Duplicados: 7334
+
+Estatísticas descritivas:
+        iso_code                           date   total_tests     new_tests  new_tests_per_thousand  new_tests_smoothed  new_tests_smoothed_per_thousand  positive_rate      tests_units
+count     424793                         424793  7.938700e+04  7.540300e+04            75403.000000        1.039650e+05                    103965.000000   95927.000000           106788
+unique       255                            NaN           NaN           NaN                     NaN                 NaN                              NaN            NaN                4
+top     OWID_HIC                            NaN           NaN           NaN                     NaN                 NaN                              NaN            NaN  tests performed
+freq        3004                            NaN           NaN           NaN                     NaN                 NaN                              NaN            NaN            80099
+mean         NaN  2022-04-14 07:04:34.182483968  2.110457e+07  6.728541e+04             2777.292070        1.421784e+05                      2392.804563       0.098163              NaN
+min          NaN            2020-01-01 00:00:00  0.000000e+00  1.000000e+00                0.000000        0.000000e+00                         0.000000       0.000000              NaN
+25%          NaN            2021-03-02 00:00:00  3.646540e+05  2.244000e+03                0.286000        1.486000e+03                         0.203000       0.017000              NaN
+50%          NaN            2022-04-14 00:00:00  2.067330e+06  8.783000e+03                0.971000        6.570000e+03                         0.851000       0.055000              NaN
+75%          NaN            2023-05-29 00:00:00  1.024845e+07  3.722900e+04             2592.000000        3.220500e+04                      2288.000000       0.138100              NaN
+max          NaN            2024-08-06 00:00:00  9.214000e+09  3.585563e+07           531062.000000        1.476998e+07                    147603.000000       1.000000              NaN
+std          NaN                            NaN  8.409869e+07  2.477340e+05             8690.988276        1.138215e+06                      7046.042504       0.115978              NaN
+
+Head (5 primeiras linhas):
+  iso_code       date  total_tests  new_tests  new_tests_per_thousand  new_tests_smoothed  new_tests_smoothed_per_thousand  positive_rate tests_units
+0      AFG 2020-01-05          NaN        NaN                     NaN                 NaN                              NaN            NaN         NaN
+1      AFG 2020-01-06          NaN        NaN                     NaN                 NaN                              NaN            NaN         NaN
+2      AFG 2020-01-07          NaN        NaN                     NaN                 NaN                              NaN            NaN         NaN
+3      AFG 2020-01-08          NaN        NaN                     NaN                 NaN                              NaN            NaN         NaN
+4      AFG 2020-01-09          NaN        NaN                     NaN                 NaN                              NaN            NaN         NaN

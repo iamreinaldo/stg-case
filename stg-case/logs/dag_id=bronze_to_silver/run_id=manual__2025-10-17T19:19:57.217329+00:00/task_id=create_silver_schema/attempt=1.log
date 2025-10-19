@@ -1,0 +1,26 @@
+[2025-10-17T19:19:58.965+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-17T19:19:58.991+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: bronze_to_silver.create_silver_schema manual__2025-10-17T19:19:57.217329+00:00 [queued]>
+[2025-10-17T19:19:58.994+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: bronze_to_silver.create_silver_schema manual__2025-10-17T19:19:57.217329+00:00 [queued]>
+[2025-10-17T19:19:58.994+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-10-17T19:19:58.999+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): create_silver_schema> on 2025-10-17 19:19:57.217329+00:00
+[2025-10-17T19:19:59.003+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=242) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-10-17T19:19:59.004+0000] {standard_task_runner.py:63} INFO - Started process 257 to run task
+[2025-10-17T19:19:59.004+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'bronze_to_silver', 'create_silver_schema', 'manual__2025-10-17T19:19:57.217329+00:00', '--job-id', '124', '--raw', '--subdir', 'DAGS_FOLDER/silver_transform_dag.py', '--cfg-path', '/tmp/tmppzv7f0i9']
+[2025-10-17T19:19:59.005+0000] {standard_task_runner.py:91} INFO - Job 124: Subtask create_silver_schema
+[2025-10-17T19:19:59.011+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-10-17T19:19:59.025+0000] {task_command.py:426} INFO - Running <TaskInstance: bronze_to_silver.create_silver_schema manual__2025-10-17T19:19:57.217329+00:00 [running]> on host 728de341d734
+[2025-10-17T19:19:59.165+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-eng' AIRFLOW_CTX_DAG_ID='bronze_to_silver' AIRFLOW_CTX_TASK_ID='create_silver_schema' AIRFLOW_CTX_EXECUTION_DATE='2025-10-17T19:19:57.217329+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-17T19:19:57.217329+00:00'
+[2025-10-17T19:19:59.166+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-17T19:19:59.173+0000] {connection.py:399} INFO - Snowflake Connector for Python Version: 3.10.1, Python Version: 3.12.4, Platform: Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+[2025-10-17T19:19:59.173+0000] {connection.py:1239} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2025-10-17T19:20:00.167+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T19:20:00.291+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T19:20:00.463+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T19:20:00.464+0000] {connection.py:762} INFO - closed
+[2025-10-17T19:20:00.538+0000] {connection.py:768} INFO - No async queries seem to be running, deleting session
+[2025-10-17T19:20:00.634+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-10-17T19:20:00.636+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-17T19:20:00.652+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=bronze_to_silver, task_id=create_silver_schema, run_id=manual__2025-10-17T19:19:57.217329+00:00, execution_date=20251017T191957, start_date=20251017T191958, end_date=20251017T192000
+[2025-10-17T19:20:00.689+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-10-17T19:20:00.705+0000] {taskinstance.py:3503} INFO - 5 downstream tasks scheduled from follow-on schedule check
+[2025-10-17T19:20:00.706+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

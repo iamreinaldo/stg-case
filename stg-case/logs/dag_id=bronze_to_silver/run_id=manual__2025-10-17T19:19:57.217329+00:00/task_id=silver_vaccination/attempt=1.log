@@ -1,0 +1,26 @@
+[2025-10-17T19:20:01.593+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-17T19:20:01.634+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: bronze_to_silver.silver_vaccination manual__2025-10-17T19:19:57.217329+00:00 [queued]>
+[2025-10-17T19:20:01.641+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: bronze_to_silver.silver_vaccination manual__2025-10-17T19:19:57.217329+00:00 [queued]>
+[2025-10-17T19:20:01.641+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-10-17T19:20:01.650+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): silver_vaccination> on 2025-10-17 19:19:57.217329+00:00
+[2025-10-17T19:20:01.665+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'bronze_to_silver', 'silver_vaccination', 'manual__2025-10-17T19:19:57.217329+00:00', '--job-id', '125', '--raw', '--subdir', 'DAGS_FOLDER/silver_transform_dag.py', '--cfg-path', '/tmp/tmphm283j27']
+[2025-10-17T19:20:01.667+0000] {standard_task_runner.py:91} INFO - Job 125: Subtask silver_vaccination
+[2025-10-17T19:20:01.664+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=271) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-10-17T19:20:01.670+0000] {standard_task_runner.py:63} INFO - Started process 283 to run task
+[2025-10-17T19:20:01.678+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-10-17T19:20:01.711+0000] {task_command.py:426} INFO - Running <TaskInstance: bronze_to_silver.silver_vaccination manual__2025-10-17T19:19:57.217329+00:00 [running]> on host 728de341d734
+[2025-10-17T19:20:01.778+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-eng' AIRFLOW_CTX_DAG_ID='bronze_to_silver' AIRFLOW_CTX_TASK_ID='silver_vaccination' AIRFLOW_CTX_EXECUTION_DATE='2025-10-17T19:19:57.217329+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-17T19:19:57.217329+00:00'
+[2025-10-17T19:20:01.779+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-17T19:20:01.790+0000] {connection.py:399} INFO - Snowflake Connector for Python Version: 3.10.1, Python Version: 3.12.4, Platform: Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+[2025-10-17T19:20:01.791+0000] {connection.py:1239} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2025-10-17T19:20:02.269+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T19:20:02.402+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T19:20:04.418+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T19:20:04.419+0000] {connection.py:762} INFO - closed
+[2025-10-17T19:20:04.497+0000] {connection.py:768} INFO - No async queries seem to be running, deleting session
+[2025-10-17T19:20:04.582+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-10-17T19:20:04.583+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-17T19:20:04.588+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=bronze_to_silver, task_id=silver_vaccination, run_id=manual__2025-10-17T19:19:57.217329+00:00, execution_date=20251017T191957, start_date=20251017T192001, end_date=20251017T192004
+[2025-10-17T19:20:04.604+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-10-17T19:20:04.612+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-10-17T19:20:04.613+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,64 @@
+[2025-10-17T15:34:43.951+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-17T15:34:43.963+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ingest_to_bronze.parquet_to_snowflake manual__2025-10-17T15:33:40.374295+00:00 [queued]>
+[2025-10-17T15:34:43.966+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ingest_to_bronze.parquet_to_snowflake manual__2025-10-17T15:33:40.374295+00:00 [queued]>
+[2025-10-17T15:34:43.967+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-10-17T15:34:43.971+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): parquet_to_snowflake> on 2025-10-17 15:33:40.374295+00:00
+[2025-10-17T15:34:43.975+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=18219) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-10-17T15:34:43.976+0000] {standard_task_runner.py:63} INFO - Started process 18222 to run task
+[2025-10-17T15:34:43.975+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'ingest_to_bronze', 'parquet_to_snowflake', 'manual__2025-10-17T15:33:40.374295+00:00', '--job-id', '103', '--raw', '--subdir', 'DAGS_FOLDER/local_ingest_to_bronze_dag.py', '--cfg-path', '/tmp/tmpwvhylw_i']
+[2025-10-17T15:34:43.977+0000] {standard_task_runner.py:91} INFO - Job 103: Subtask parquet_to_snowflake
+[2025-10-17T15:34:43.982+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-10-17T15:34:43.996+0000] {task_command.py:426} INFO - Running <TaskInstance: ingest_to_bronze.parquet_to_snowflake manual__2025-10-17T15:33:40.374295+00:00 [running]> on host 728de341d734
+[2025-10-17T15:34:44.026+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ingest_to_bronze' AIRFLOW_CTX_TASK_ID='parquet_to_snowflake' AIRFLOW_CTX_EXECUTION_DATE='2025-10-17T15:33:40.374295+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-17T15:33:40.374295+00:00'
+[2025-10-17T15:34:44.026+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-17T15:34:44.033+0000] {connection.py:399} INFO - Snowflake Connector for Python Version: 3.10.1, Python Version: 3.12.4, Platform: Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+[2025-10-17T15:34:44.033+0000] {connection.py:1239} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2025-10-17T15:34:45.000+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T15:34:45.121+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T15:34:45.248+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T15:34:45.250+0000] {logging_mixin.py:188} INFO - [snowflake ctx] ('ACCOUNTADMIN', 'COMPUTE_WH', 'COVID_DB', 'BRONZE')
+[2025-10-17T15:34:45.252+0000] {logging_mixin.py:188} INFO - [load] BRONZE_DIR=/opt/***/data_lake/bronze | 6 parquet(s)
+[2025-10-17T15:34:45.330+0000] {logging_mixin.py:188} INFO - [load] CASES_DATASET cols: ['ISO_CODE', 'CONTINENT', 'LOCATION', 'DATE', 'TOTAL_CASES', 'NEW_CASES', 'NEW_CASES_SMOOTHED', 'TOTAL_DEATHS', 'NEW_DEATHS', 'NEW_DEATHS_SMOOTHED', 'TOTAL_CASES_PER_MILLION', 'NEW_CASES_PER_MILLION', 'NEW_CASES_SMOOTHED_PER_MILLION', 'TOTAL_DEATHS_PER_MILLION', 'NEW_DEATHS_PER_MILLION', 'NEW_DEATHS_SMOOTHED_PER_MILLION']
+[2025-10-17T15:34:45.331+0000] {logging_mixin.py:188} INFO - [load] create_sql: CREATE OR REPLACE TABLE "CASES_DATASET" ("ISO_CODE" TEXT, "CONTINENT" TEXT, "LOCATION" TEXT, "DATE" TIMESTAMP_NTZ, "TOTAL_CASES" FLOAT, "NEW_CASES" FLOAT, "NEW_CASES_SMOOTHED" FLOAT, "TOTAL_DEATHS" FLOAT, "NEW_DEATHS" FLOAT, "NEW_DEATHS_SMOOTHED" FLOAT, "TOTAL_CASES_PER_MILLION" FLOAT, "NEW_CASES_PER_MILLION" FLOAT, "NEW_CASES_SMOOTHED_PER_MILLION" FLOAT, "TOTAL_DEATHS_PER_MILLION" FLOAT, "NEW_DEATHS_PER_MILLION" FLOAT, "NEW_DEATHS_SMOOTHED_PER_MILLION" FLOAT)
+[2025-10-17T15:34:45.684+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T15:34:45.883+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T15:34:54.541+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T15:34:54.543+0000] {logging_mixin.py:188} INFO - [load] CASES_DATASET: ok=True chunks=1 rows=424793
+[2025-10-17T15:34:54.598+0000] {logging_mixin.py:188} INFO - [load] COUNTRY_DATASET cols: ['ISO_CODE', 'POPULATION_DENSITY', 'MEDIAN_AGE', 'AGED_65_OLDER', 'AGED_70_OLDER', 'GDP_PER_CAPITA', 'EXTREME_POVERTY', 'CARDIOVASC_DEATH_RATE', 'DIABETES_PREVALENCE', 'FEMALE_SMOKERS', 'MALE_SMOKERS', 'HANDWASHING_FACILITIES', 'HOSPITAL_BEDS_PER_THOUSAND', 'LIFE_EXPECTANCY', 'HUMAN_DEVELOPMENT_INDEX', 'POPULATION']
+[2025-10-17T15:34:54.599+0000] {logging_mixin.py:188} INFO - [load] create_sql: CREATE OR REPLACE TABLE "COUNTRY_DATASET" ("ISO_CODE" TEXT, "POPULATION_DENSITY" TEXT, "MEDIAN_AGE" FLOAT, "AGED_65_OLDER" FLOAT, "AGED_70_OLDER" FLOAT, "GDP_PER_CAPITA" TEXT, "EXTREME_POVERTY" FLOAT, "CARDIOVASC_DEATH_RATE" FLOAT, "DIABETES_PREVALENCE" FLOAT, "FEMALE_SMOKERS" FLOAT, "MALE_SMOKERS" FLOAT, "HANDWASHING_FACILITIES" FLOAT, "HOSPITAL_BEDS_PER_THOUSAND" FLOAT, "LIFE_EXPECTANCY" FLOAT, "HUMAN_DEVELOPMENT_INDEX" FLOAT, "POPULATION" FLOAT)
+[2025-10-17T15:34:54.879+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T15:34:55.057+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T15:34:57.439+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T15:34:57.440+0000] {logging_mixin.py:188} INFO - [load] COUNTRY_DATASET: ok=True chunks=1 rows=424777
+[2025-10-17T15:34:57.470+0000] {logging_mixin.py:188} INFO - [load] HOSPITAL_DATASET cols: ['ISO_CODE', 'DATE', 'ICU_PATIENTS', 'ICU_PATIENTS_PER_MILLION', 'HOSP_PATIENTS', 'HOSP_PATIENTS_PER_MILLION', 'WEEKLY_ICU_ADMISSIONS', 'WEEKLY_ICU_ADMISSIONS_PER_MILLION', 'WEEKLY_HOSP_ADMISSIONS', 'WEEKLY_HOSP_ADMISSIONS_PER_MILLION']
+[2025-10-17T15:34:57.471+0000] {logging_mixin.py:188} INFO - [load] create_sql: CREATE OR REPLACE TABLE "HOSPITAL_DATASET" ("ISO_CODE" TEXT, "DATE" TIMESTAMP_NTZ, "ICU_PATIENTS" FLOAT, "ICU_PATIENTS_PER_MILLION" FLOAT, "HOSP_PATIENTS" FLOAT, "HOSP_PATIENTS_PER_MILLION" FLOAT, "WEEKLY_ICU_ADMISSIONS" FLOAT, "WEEKLY_ICU_ADMISSIONS_PER_MILLION" FLOAT, "WEEKLY_HOSP_ADMISSIONS" FLOAT, "WEEKLY_HOSP_ADMISSIONS_PER_MILLION" FLOAT)
+[2025-10-17T15:34:57.853+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T15:34:58.013+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T15:35:02.134+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T15:35:02.135+0000] {logging_mixin.py:188} INFO - [load] HOSPITAL_DATASET: ok=True chunks=1 rows=424793
+[2025-10-17T15:35:02.166+0000] {logging_mixin.py:188} INFO - [load] OXCGRT_POLICIES cols: ['ISO_CODE', 'DATE', 'STRINGENCYINDEX', 'C1_SCHOOL_CLOSING', 'C2_WORKPLACE_CLOSING', 'C3_CANCEL_PUBLIC_EVENTS', 'C4_RESTRICTIONS_ON_GATHERINGS', 'C6_STAY_AT_HOME_REQUIREMENTS', 'H1_PUBLIC_INFORMATION_CAMPAIGNS', 'H2_TESTING_POLICY', 'H3_CONTACT_TRACING', 'INGESTED_AT']
+[2025-10-17T15:35:02.167+0000] {logging_mixin.py:188} INFO - [load] create_sql: CREATE OR REPLACE TABLE "OXCGRT_POLICIES" ("ISO_CODE" TEXT, "DATE" TIMESTAMP_NTZ, "STRINGENCYINDEX" FLOAT, "C1_SCHOOL_CLOSING" FLOAT, "C2_WORKPLACE_CLOSING" FLOAT, "C3_CANCEL_PUBLIC_EVENTS" FLOAT, "C4_RESTRICTIONS_ON_GATHERINGS" FLOAT, "C6_STAY_AT_HOME_REQUIREMENTS" FLOAT, "H1_PUBLIC_INFORMATION_CAMPAIGNS" FLOAT, "H2_TESTING_POLICY" FLOAT, "H3_CONTACT_TRACING" FLOAT, "INGESTED_AT" TIMESTAMP_NTZ)
+[2025-10-17T15:35:02.515+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T15:35:02.681+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T15:35:06.927+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T15:35:06.928+0000] {logging_mixin.py:188} INFO - [load] OXCGRT_POLICIES: ok=True chunks=1 rows=318762
+[2025-10-17T15:35:06.965+0000] {logging_mixin.py:188} INFO - [load] TESTS_DATASET cols: ['ISO_CODE', 'DATE', 'TOTAL_TESTS', 'NEW_TESTS', 'NEW_TESTS_PER_THOUSAND', 'NEW_TESTS_SMOOTHED', 'NEW_TESTS_SMOOTHED_PER_THOUSAND', 'POSITIVE_RATE', 'TESTS_UNITS']
+[2025-10-17T15:35:06.965+0000] {logging_mixin.py:188} INFO - [load] create_sql: CREATE OR REPLACE TABLE "TESTS_DATASET" ("ISO_CODE" TEXT, "DATE" TIMESTAMP_NTZ, "TOTAL_TESTS" FLOAT, "NEW_TESTS" FLOAT, "NEW_TESTS_PER_THOUSAND" FLOAT, "NEW_TESTS_SMOOTHED" FLOAT, "NEW_TESTS_SMOOTHED_PER_THOUSAND" FLOAT, "POSITIVE_RATE" FLOAT, "TESTS_UNITS" TEXT)
+[2025-10-17T15:35:07.273+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T15:35:07.448+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T15:35:11.232+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T15:35:11.233+0000] {logging_mixin.py:188} INFO - [load] TESTS_DATASET: ok=True chunks=1 rows=424793
+[2025-10-17T15:35:11.275+0000] {logging_mixin.py:188} INFO - [load] VACCINATION_DATASET cols: ['ISO_CODE', 'DATE', 'TOTAL_VACCINATIONS', 'PEOPLE_VACCINATED', 'PEOPLE_FULLY_VACCINATED', 'TOTAL_BOOSTERS', 'NEW_VACCINATIONS', 'NEW_VACCINATIONS_SMOOTHED', 'TOTAL_VACCINATIONS_PER_HUNDRED', 'PEOPLE_VACCINATED_PER_HUNDRED', 'PEOPLE_FULLY_VACCINATED_PER_HUNDRED', 'TOTAL_BOOSTERS_PER_HUNDRED', 'NEW_VACCINATIONS_SMOOTHED_PER_MILLION', 'NEW_PEOPLE_VACCINATED_SMOOTHED', 'NEW_PEOPLE_VACCINATED_SMOOTHED_PER_HUNDRED']
+[2025-10-17T15:35:11.276+0000] {logging_mixin.py:188} INFO - [load] create_sql: CREATE OR REPLACE TABLE "VACCINATION_DATASET" ("ISO_CODE" TEXT, "DATE" TIMESTAMP_NTZ, "TOTAL_VACCINATIONS" FLOAT, "PEOPLE_VACCINATED" FLOAT, "PEOPLE_FULLY_VACCINATED" FLOAT, "TOTAL_BOOSTERS" FLOAT, "NEW_VACCINATIONS" FLOAT, "NEW_VACCINATIONS_SMOOTHED" FLOAT, "TOTAL_VACCINATIONS_PER_HUNDRED" FLOAT, "PEOPLE_VACCINATED_PER_HUNDRED" FLOAT, "PEOPLE_FULLY_VACCINATED_PER_HUNDRED" FLOAT, "TOTAL_BOOSTERS_PER_HUNDRED" FLOAT, "NEW_VACCINATIONS_SMOOTHED_PER_MILLION" FLOAT, "NEW_PEOPLE_VACCINATED_SMOOTHED" FLOAT, "NEW_PEOPLE_VACCINATED_SMOOTHED_PER_HUNDRED" FLOAT)
+[2025-10-17T15:35:11.591+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T15:35:11.766+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T15:35:16.522+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T15:35:16.524+0000] {logging_mixin.py:188} INFO - [load] VACCINATION_DATASET: ok=True chunks=1 rows=424793
+[2025-10-17T15:35:16.524+0000] {connection.py:762} INFO - closed
+[2025-10-17T15:35:16.604+0000] {connection.py:768} INFO - No async queries seem to be running, deleting session
+[2025-10-17T15:35:16.702+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-10-17T15:35:16.704+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-17T15:35:16.717+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=ingest_to_bronze, task_id=parquet_to_snowflake, run_id=manual__2025-10-17T15:33:40.374295+00:00, execution_date=20251017T153340, start_date=20251017T153443, end_date=20251017T153516
+[2025-10-17T15:35:16.762+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-10-17T15:35:16.776+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-10-17T15:35:16.777+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

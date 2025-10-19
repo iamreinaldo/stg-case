@@ -1,0 +1,142 @@
+[2025-10-17T00:06:53.280+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-17T00:06:53.296+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: silver_transform.run_sql manual__2025-10-17T00:06:51.659145+00:00 [queued]>
+[2025-10-17T00:06:53.299+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: silver_transform.run_sql manual__2025-10-17T00:06:51.659145+00:00 [queued]>
+[2025-10-17T00:06:53.299+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-10-17T00:06:53.303+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_sql> on 2025-10-17 00:06:51.659145+00:00
+[2025-10-17T00:06:53.309+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=207) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-10-17T00:06:53.309+0000] {standard_task_runner.py:63} INFO - Started process 210 to run task
+[2025-10-17T00:06:53.309+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'silver_transform', 'run_sql', 'manual__2025-10-17T00:06:51.659145+00:00', '--job-id', '86', '--raw', '--subdir', 'DAGS_FOLDER/silver_transform_dag.py', '--cfg-path', '/tmp/tmpqos3947x']
+[2025-10-17T00:06:53.310+0000] {standard_task_runner.py:91} INFO - Job 86: Subtask run_sql
+[2025-10-17T00:06:53.319+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-10-17T00:06:53.332+0000] {task_command.py:426} INFO - Running <TaskInstance: silver_transform.run_sql manual__2025-10-17T00:06:51.659145+00:00 [running]> on host 728de341d734
+[2025-10-17T00:06:53.366+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='silver_transform' AIRFLOW_CTX_TASK_ID='run_sql' AIRFLOW_CTX_EXECUTION_DATE='2025-10-17T00:06:51.659145+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-17T00:06:51.659145+00:00'
+[2025-10-17T00:06:53.367+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-17T00:06:53.373+0000] {connection.py:399} INFO - Snowflake Connector for Python Version: 3.10.1, Python Version: 3.12.4, Platform: Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+[2025-10-17T00:06:53.373+0000] {connection.py:1239} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2025-10-17T00:06:54.157+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+USE WAREHOUSE COMPUTE_WH
+[2025-10-17T00:06:54.273+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T00:06:54.274+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+USE DATABASE COVID_DB
+[2025-10-17T00:06:54.413+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T00:06:54.414+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+CREATE SCHEMA IF NOT EXISTS SILVER
+[2025-10-17T00:06:54.536+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T00:06:54.537+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+CREATE OR REPLACE TABLE SILVER.CASES_CLEAN AS
+SELECT *
+FROM (
+  SELECT
+    UPPER(ISO_CODE) AS iso_code,
+    CASE
+      WHEN TRY_TO_DATE(TO_VARCHAR(date)) IS NOT NULL THEN TRY_TO_DATE(TO_VARCHAR(date))
+      WHEN TRY_TO_DATE(TO_VARCHAR(date), 'YYYY-MM-DD') IS NOT NULL THEN TO_DATE(TO_VARCHAR(date), 'YYYY-MM-DD')
+      WHEN TRY_TO_DATE(TO_VARCHAR(date), 'YYYY/MM/DD') IS NOT NULL THEN TO_DATE(TO_VARC...
+[2025-10-17T00:07:00.820+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T00:07:00.821+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+CREATE OR REPLACE TABLE SILVER.VACC_CLEAN AS
+SELECT *
+FROM (
+  SELECT
+    UPPER(ISO_CODE) AS iso_code,
+    CASE
+      WHEN TRY_TO_DATE(TO_VARCHAR(date)) IS NOT NULL THEN TRY_TO_DATE(TO_VARCHAR(date))
+      WHEN TRY_TO_DATE(TO_VARCHAR(date), 'YYYY-MM-DD') IS NOT NULL THEN TO_DATE(TO_VARCHAR(date), 'YYYY-MM-DD')
+      WHEN TRY_TO_DATE(TO_VARCHAR(date), 'YYYY/MM/DD') IS NOT NULL THEN TO_DATE(TO_VARCH...
+[2025-10-17T00:07:10.345+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T00:07:10.347+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+CREATE OR REPLACE TABLE SILVER.HOSP_CLEAN AS
+SELECT *
+FROM (
+  SELECT
+    UPPER(ISO_CODE) AS iso_code,
+    CASE
+      WHEN TRY_TO_DATE(TO_VARCHAR(date)) IS NOT NULL THEN TRY_TO_DATE(TO_VARCHAR(date))
+      WHEN TRY_TO_DATE(TO_VARCHAR(date), 'YYYY-MM-DD') IS NOT NULL THEN TO_DATE(TO_VARCHAR(date), 'YYYY-MM-DD')
+      WHEN TRY_TO_DATE(TO_VARCHAR(date), 'YYYY/MM/DD') IS NOT NULL THEN TO_DATE(TO_VARCH...
+[2025-10-17T00:07:11.218+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T00:07:11.219+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+CREATE OR REPLACE TABLE SILVER.TESTS_CLEAN AS
+SELECT *
+FROM (
+  SELECT
+    UPPER(ISO_CODE) AS iso_code,
+    CASE
+      WHEN TRY_TO_DATE(TO_VARCHAR(date)) IS NOT NULL THEN TRY_TO_DATE(TO_VARCHAR(date))
+      WHEN TRY_TO_DATE(TO_VARCHAR(date), 'YYYY-MM-DD') IS NOT NULL THEN TO_DATE(TO_VARCHAR(date), 'YYYY-MM-DD')
+      WHEN TRY_TO_DATE(TO_VARCHAR(date), 'YYYY/MM/DD') IS NOT NULL THEN TO_DATE(TO_VARC...
+[2025-10-17T00:07:12.320+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T00:07:12.321+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+-- =========================
+-- 5) COUNTRY DIM (dedupe + normalização numérica)
+-- =========================
+CREATE OR REPLACE TABLE SILVER.COUNTRY_DIM AS
+WITH base AS (
+  SELECT
+    UPPER(ISO_CODE) AS iso_code,
+    -- remove qualquer caractere não numérico onde veio string (ex: "1.803.987")
+    TRY_TO_DOUBLE(REGEXP_REPLACE(population_density,        '[^0-9\.-]', '')) AS population_density,
+    TR...
+[2025-10-17T00:07:13.560+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T00:07:13.561+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+CREATE OR REPLACE TABLE SILVER.OX_CLEAN AS
+SELECT
+  UPPER("iso_code") AS iso_code,
+  CASE
+    WHEN "date" >= 1000000000000000000 THEN TO_DATE(TO_TIMESTAMP_NTZ("date", 9))  -- nanoseconds
+    WHEN "date" >= 1000000000000       THEN TO_DATE(TO_TIMESTAMP_NTZ("date", 3))  -- milliseconds
+    WHEN "date" >= 1000000000          THEN TO_DATE(TO_TIMESTAMP_NTZ("date"))     -- seconds
+    ELSE TO_DATE(TO_VA...
+[2025-10-17T00:07:15.334+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T00:07:15.336+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+-- =========================
+-- 7) FATO DIÁRIO INTEGRADO (joins por iso_code + date)
+-- =========================
+CREATE OR REPLACE TABLE SILVER.FACT_COVID_DAILY AS
+SELECT
+  c.iso_code,
+  c.date,
+  c.total_cases,
+  c.new_cases,
+  c.total_deaths,
+  c.new_deaths,
+  v.people_vaccinated,
+  v.people_fully_vaccinated,
+  v.total_boosters,
+  h.icu_patients,
+  h.hosp_patients,
+  t.new_tests,
+  t.new_tests_...
+[2025-10-17T00:07:16.586+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T00:07:16.588+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+-- =========================
+-- 8) QUALITY CHECKS (views)
+-- =========================
+CREATE OR REPLACE VIEW SILVER.VW_DUP_CASES AS
+SELECT iso_code, date, COUNT(*) cnt FROM SILVER.CASES_CLEAN WHERE date IS NOT NULL GROUP BY 1,2 HAVING COUNT(*)>1
+[2025-10-17T00:07:16.997+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T00:07:16.998+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+CREATE OR REPLACE VIEW SILVER.VW_NULL_KEYS AS
+SELECT 'FACT_COVID_DAILY' AS tbl, COUNT(*) AS null_keys
+FROM SILVER.FACT_COVID_DAILY WHERE iso_code IS NULL OR date IS NULL
+[2025-10-17T00:07:17.221+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-17T00:07:17.223+0000] {connection.py:762} INFO - closed
+[2025-10-17T00:07:17.303+0000] {connection.py:768} INFO - No async queries seem to be running, deleting session
+[2025-10-17T00:07:17.385+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-10-17T00:07:17.386+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-17T00:07:17.405+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=silver_transform, task_id=run_sql, run_id=manual__2025-10-17T00:06:51.659145+00:00, execution_date=20251017T000651, start_date=20251017T000653, end_date=20251017T000717
+[2025-10-17T00:07:17.432+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-10-17T00:07:17.443+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-10-17T00:07:17.444+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

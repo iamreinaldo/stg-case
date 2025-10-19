@@ -1,0 +1,147 @@
+[2025-10-16T21:35:17.566+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-16T21:35:17.579+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: silver_transform.run_sql manual__2025-10-16T21:35:16.785392+00:00 [queued]>
+[2025-10-16T21:35:17.582+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: silver_transform.run_sql manual__2025-10-16T21:35:16.785392+00:00 [queued]>
+[2025-10-16T21:35:17.582+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-10-16T21:35:17.587+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_sql> on 2025-10-16 21:35:16.785392+00:00
+[2025-10-16T21:35:17.592+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=208) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-10-16T21:35:17.593+0000] {standard_task_runner.py:63} INFO - Started process 211 to run task
+[2025-10-16T21:35:17.592+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'silver_transform', 'run_sql', 'manual__2025-10-16T21:35:16.785392+00:00', '--job-id', '72', '--raw', '--subdir', 'DAGS_FOLDER/silver_transform_dag.py', '--cfg-path', '/tmp/tmpgtp3s1cr']
+[2025-10-16T21:35:17.594+0000] {standard_task_runner.py:91} INFO - Job 72: Subtask run_sql
+[2025-10-16T21:35:17.600+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-10-16T21:35:17.615+0000] {task_command.py:426} INFO - Running <TaskInstance: silver_transform.run_sql manual__2025-10-16T21:35:16.785392+00:00 [running]> on host 728de341d734
+[2025-10-16T21:35:17.646+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='silver_transform' AIRFLOW_CTX_TASK_ID='run_sql' AIRFLOW_CTX_EXECUTION_DATE='2025-10-16T21:35:16.785392+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-16T21:35:16.785392+00:00'
+[2025-10-16T21:35:17.647+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-16T21:35:17.655+0000] {connection.py:399} INFO - Snowflake Connector for Python Version: 3.10.1, Python Version: 3.12.4, Platform: Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+[2025-10-16T21:35:17.656+0000] {connection.py:1239} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2025-10-16T21:35:18.342+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+USE WAREHOUSE COMPUTE_WH
+[2025-10-16T21:35:18.457+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-16T21:35:18.457+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+USE DATABASE COVID_DB
+[2025-10-16T21:35:18.587+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-16T21:35:18.588+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+CREATE SCHEMA IF NOT EXISTS SILVER
+[2025-10-16T21:35:18.711+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-16T21:35:18.712+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+-- =========================
+-- 1) CLEAN CASES
+-- =========================
+CREATE OR REPLACE TABLE SILVER.CASES_CLEAN AS
+SELECT
+  UPPER(ISO_CODE) AS iso_code,
+  TRY_TO_DATE(TO_VARCHAR(date)) AS date,
+  TRY_TO_DOUBLE(total_cases)  AS total_cases,
+  TRY_TO_DOUBLE(new_cases)    AS new_cases,
+  TRY_TO_DOUBLE(total_deaths) AS total_deaths,
+  TRY_TO_DOUBLE(new_deaths)   AS new_deaths
+FROM COVID_DB.BRON...
+[2025-10-16T21:35:22.229+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-16T21:35:22.231+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+-- =========================
+-- 2) CLEAN VACCINATION
+-- =========================
+CREATE OR REPLACE TABLE SILVER.VACC_CLEAN AS
+SELECT
+  UPPER(ISO_CODE) AS iso_code,
+  TRY_TO_DATE(TO_VARCHAR(date)) AS date,
+  TRY_TO_DOUBLE(people_vaccinated)       AS people_vaccinated,
+  TRY_TO_DOUBLE(people_fully_vaccinated) AS people_fully_vaccinated,
+  TRY_TO_DOUBLE(total_boosters)          AS total_boosters
+FRO...
+[2025-10-16T21:35:28.144+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-16T21:35:28.145+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+-- =========================
+-- 3) CLEAN HOSPITAL
+-- =========================
+CREATE OR REPLACE TABLE SILVER.HOSP_CLEAN AS
+SELECT
+  UPPER(ISO_CODE) AS iso_code,
+  TRY_TO_DATE(TO_VARCHAR(date)) AS date,
+  TRY_TO_DOUBLE(icu_patients)                  AS icu_patients,
+  TRY_TO_DOUBLE(hosp_patients)                 AS hosp_patients,
+  TRY_TO_DOUBLE(weekly_icu_admissions)        AS weekly_icu_admissio...
+[2025-10-16T21:35:28.775+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-16T21:35:28.777+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+-- =========================
+-- 4) CLEAN TESTS
+-- =========================
+CREATE OR REPLACE TABLE SILVER.TESTS_CLEAN AS
+SELECT
+  UPPER(ISO_CODE) AS iso_code,
+  TRY_TO_DATE(TO_VARCHAR(date)) AS date,
+  TRY_TO_DOUBLE(total_tests)                 AS total_tests,
+  TRY_TO_DOUBLE(new_tests)                   AS new_tests,
+  TRY_TO_DOUBLE(new_tests_smoothed)          AS new_tests_smoothed,
+  TRY_TO_DO...
+[2025-10-16T21:35:29.514+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-16T21:35:29.515+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+-- =========================
+-- 5) COUNTRY DIM (dedupe + normalização numérica)
+-- =========================
+CREATE OR REPLACE TABLE SILVER.COUNTRY_DIM AS
+WITH base AS (
+  SELECT
+    UPPER(ISO_CODE) AS iso_code,
+    -- remove qualquer caractere não numérico onde veio string (ex: "1.803.987")
+    TRY_TO_DOUBLE(REGEXP_REPLACE(population_density,        '[^0-9\.-]', '')) AS population_density,
+    TR...
+[2025-10-16T21:35:30.245+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-16T21:35:30.246+0000] {logging_mixin.py:188} INFO - 
+[SQL] Executing statement:
+-- =========================
+-- 6) OXCGRT (políticas públicas)
+-- =========================
+CREATE OR REPLACE TABLE SILVER.OX_CLEAN AS
+SELECT
+  UPPER(iso_code) AS iso_code,
+  TO_DATE(TO_VARCHAR(date), 'YYYYMMDD') AS date,
+  TRY_TO_DOUBLE(stringencyindex) AS stringency_index,
+  TRY_TO_DOUBLE(c1_school_closing)              AS c1_school_closing,
+  TRY_TO_DOUBLE(c2_workplace_closing)           AS c2_...
+[2025-10-16T21:35:30.393+0000] {connection.py:762} INFO - closed
+[2025-10-16T21:35:30.471+0000] {connection.py:768} INFO - No async queries seem to be running, deleting session
+[2025-10-16T21:35:30.646+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-16T21:35:30.648+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/silver_transform_dag.py", line 210, in run_sql
+    cs.execute(stmt)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 1080, in execute
+    Error.errorhandler_wrapper(self.connection, self, error_class, errvalue)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 290, in errorhandler_wrapper
+    handed_over = Error.hand_to_other_handler(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 345, in hand_to_other_handler
+    cursor.errorhandler(connection, cursor, error_class, error_value)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 221, in default_errorhandler
+    raise error_class(
+snowflake.connector.errors.ProgrammingError: 000904 (42000): 01bfc1af-0001-092d-0000-c8f10002a306: SQL compilation error: error line 3 at position 8
+invalid identifier 'ISO_CODE'
+[2025-10-16T21:35:30.662+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=silver_transform, task_id=run_sql, run_id=manual__2025-10-16T21:35:16.785392+00:00, execution_date=20251016T213516, start_date=20251016T213517, end_date=20251016T213530
+[2025-10-16T21:35:30.673+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 72 for task run_sql (000904 (42000): 01bfc1af-0001-092d-0000-c8f10002a306: SQL compilation error: error line 3 at position 8
+invalid identifier 'ISO_CODE'; 211)
+[2025-10-16T21:35:30.715+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-10-16T21:35:30.726+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-10-16T21:35:30.727+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

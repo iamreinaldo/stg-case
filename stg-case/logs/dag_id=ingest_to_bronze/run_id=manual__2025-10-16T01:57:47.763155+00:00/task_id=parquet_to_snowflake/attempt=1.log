@@ -1,0 +1,73 @@
+[2025-10-16T01:58:50.337+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-16T01:58:50.350+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ingest_to_bronze.parquet_to_snowflake manual__2025-10-16T01:57:47.763155+00:00 [queued]>
+[2025-10-16T01:58:50.353+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ingest_to_bronze.parquet_to_snowflake manual__2025-10-16T01:57:47.763155+00:00 [queued]>
+[2025-10-16T01:58:50.353+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-10-16T01:58:50.357+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): parquet_to_snowflake> on 2025-10-16 01:57:47.763155+00:00
+[2025-10-16T01:58:50.361+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=237) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-10-16T01:58:50.361+0000] {standard_task_runner.py:63} INFO - Started process 240 to run task
+[2025-10-16T01:58:50.361+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'ingest_to_bronze', 'parquet_to_snowflake', 'manual__2025-10-16T01:57:47.763155+00:00', '--job-id', '31', '--raw', '--subdir', 'DAGS_FOLDER/api_ingest_to_bronze_dag.py', '--cfg-path', '/tmp/tmphn4hvbjh']
+[2025-10-16T01:58:50.362+0000] {standard_task_runner.py:91} INFO - Job 31: Subtask parquet_to_snowflake
+[2025-10-16T01:58:50.368+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-10-16T01:58:50.379+0000] {task_command.py:426} INFO - Running <TaskInstance: ingest_to_bronze.parquet_to_snowflake manual__2025-10-16T01:57:47.763155+00:00 [running]> on host 728de341d734
+[2025-10-16T01:58:50.406+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ingest_to_bronze' AIRFLOW_CTX_TASK_ID='parquet_to_snowflake' AIRFLOW_CTX_EXECUTION_DATE='2025-10-16T01:57:47.763155+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-16T01:57:47.763155+00:00'
+[2025-10-16T01:58:50.407+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-16T01:58:50.412+0000] {connection.py:399} INFO - Snowflake Connector for Python Version: 3.10.1, Python Version: 3.12.4, Platform: Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+[2025-10-16T01:58:50.412+0000] {connection.py:1239} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2025-10-16T01:58:51.344+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-16T01:58:51.456+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-16T01:58:51.601+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-16T01:58:51.603+0000] {logging_mixin.py:188} INFO - [snowflake ctx] ('ACCOUNTADMIN', 'COMPUTE_WH', 'COVID_DB', 'BRONZE')
+[2025-10-16T01:58:51.606+0000] {logging_mixin.py:188} INFO - [load] BRONZE_DIR=/opt/***/data_lake/bronze | 5 parquet(s)
+[2025-10-16T01:58:51.692+0000] {logging_mixin.py:188} INFO - [load] CASES_DATASET cols: ['ISO_CODE', 'CONTINENT', 'LOCATION', 'DATE', 'TOTAL_CASES', 'NEW_CASES', 'NEW_CASES_SMOOTHED', 'TOTAL_DEATHS', 'NEW_DEATHS', 'NEW_DEATHS_SMOOTHED', 'TOTAL_CASES_PER_MILLION', 'NEW_CASES_PER_MILLION', 'NEW_CASES_SMOOTHED_PER_MILLION', 'TOTAL_DEATHS_PER_MILLION', 'NEW_DEATHS_PER_MILLION', 'NEW_DEATHS_SMOOTHED_PER_MILLION']
+[2025-10-16T01:58:51.692+0000] {logging_mixin.py:188} INFO - [load] create_sql: CREATE TABLE IF NOT EXISTS "CASES_DATASET" ("ISO_CODE" TEXT, "CONTINENT" TEXT, "LOCATION" TEXT, "DATE" TIMESTAMP_NTZ, "TOTAL_CASES" FLOAT, "NEW_CASES" FLOAT, "NEW_CASES_SMOOTHED" FLOAT, "TOTAL_DEATHS" FLOAT, "NEW_DEATHS" FLOAT, "NEW_DEATHS_SMOOTHED" FLOAT, "TOTAL_CASES_PER_MILLION" FLOAT, "NEW_CASES_PER_MILLION" FLOAT, "NEW_CASES_SMOOTHED_PER_MILLION" FLOAT, "TOTAL_DEATHS_PER_MILLION" FLOAT, "NEW_DEATHS_PER_MILLION" FLOAT, "NEW_DEATHS_SMOOTHED_PER_MILLION" FLOAT)
+[2025-10-16T01:58:51.817+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-16T01:58:51.984+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-16T01:58:59.947+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-16T01:58:59.951+0000] {logging_mixin.py:188} INFO - [load] CASES_DATASET: ok=True chunks=1 rows=424793
+[2025-10-16T01:59:00.013+0000] {logging_mixin.py:188} INFO - [load] COUNTRY_DATASET cols: ['ISO_CODE', 'POPULATION_DENSITY', 'MEDIAN_AGE', 'AGED_65_OLDER', 'AGED_70_OLDER', 'GDP_PER_CAPITA', 'EXTREME_POVERTY', 'CARDIOVASC_DEATH_RATE', 'DIABETES_PREVALENCE', 'FEMALE_SMOKERS', 'MALE_SMOKERS', 'HANDWASHING_FACILITIES', 'HOSPITAL_BEDS_PER_THOUSAND', 'LIFE_EXPECTANCY', 'HUMAN_DEVELOPMENT_INDEX', 'POPULATION']
+[2025-10-16T01:59:00.014+0000] {logging_mixin.py:188} INFO - [load] create_sql: CREATE TABLE IF NOT EXISTS "COUNTRY_DATASET" ("ISO_CODE" TEXT, "POPULATION_DENSITY" TEXT, "MEDIAN_AGE" FLOAT, "AGED_65_OLDER" FLOAT, "AGED_70_OLDER" FLOAT, "GDP_PER_CAPITA" TEXT, "EXTREME_POVERTY" FLOAT, "CARDIOVASC_DEATH_RATE" FLOAT, "DIABETES_PREVALENCE" FLOAT, "FEMALE_SMOKERS" FLOAT, "MALE_SMOKERS" FLOAT, "HANDWASHING_FACILITIES" FLOAT, "HOSPITAL_BEDS_PER_THOUSAND" FLOAT, "LIFE_EXPECTANCY" FLOAT, "HUMAN_DEVELOPMENT_INDEX" FLOAT, "POPULATION" FLOAT)
+[2025-10-16T01:59:00.145+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-16T01:59:00.344+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-16T01:59:01.246+0000] {connection.py:762} INFO - closed
+[2025-10-16T01:59:01.327+0000] {connection.py:768} INFO - No async queries seem to be running, deleting session
+[2025-10-16T01:59:01.425+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-16T01:59:01.426+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/api_ingest_to_bronze_dag.py", line 155, in load_parquet_to_snowflake
+    ok, nchunks, nrows, _ = write_pandas(con, df, table_name=table, quote_identifiers=True)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/pandas_tools.py", line 438, in write_pandas
+    copy_results = cursor.execute(copy_into_sql, _is_internal=True).fetchall()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 1080, in execute
+    Error.errorhandler_wrapper(self.connection, self, error_class, errvalue)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 290, in errorhandler_wrapper
+    handed_over = Error.hand_to_other_handler(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 345, in hand_to_other_handler
+    cursor.errorhandler(connection, cursor, error_class, error_value)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 221, in default_errorhandler
+    raise error_class(
+snowflake.connector.errors.ProgrammingError: 000904 (42000): 01bfbd17-0001-0929-0000-c8f100023236: SQL compilation error: error line 1 at position 90
+invalid identifier 'ISO_CODE'
+[2025-10-16T01:59:01.433+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=ingest_to_bronze, task_id=parquet_to_snowflake, run_id=manual__2025-10-16T01:57:47.763155+00:00, execution_date=20251016T015747, start_date=20251016T015850, end_date=20251016T015901
+[2025-10-16T01:59:01.444+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 31 for task parquet_to_snowflake (000904 (42000): 01bfbd17-0001-0929-0000-c8f100023236: SQL compilation error: error line 1 at position 90
+invalid identifier 'ISO_CODE'; 240)
+[2025-10-16T01:59:01.494+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-10-16T01:59:01.506+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-10-16T01:59:01.507+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
