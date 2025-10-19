@@ -5717,3 +5717,94 @@
 [2025-10-19T18:40:13.401+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:40:13.401+0000] {dag.py:3096} INFO - Sync 1 DAGs
 [2025-10-19T18:40:13.406+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:40:13.406+0000] {dag.py:3954} INFO - Setting next_dagrun for ingest_to_bronze to None, run_after=None
 [2025-10-19T18:40:13.412+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_ingest_to_bronze_dag.py took 0.313 seconds
+[2025-10-19T18:40:44.269+0000] {processor.py:161} INFO - Started process (PID=5544) to work on /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:40:44.271+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_ingest_to_bronze_dag.py for tasks to queue
+[2025-10-19T18:40:44.271+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:40:44.271+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:40:44.542+0000] {processor.py:840} INFO - DAG(s) 'ingest_to_bronze' retrieved from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:40:44.551+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:40:44.551+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-10-19T18:40:44.555+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:40:44.555+0000] {dag.py:3954} INFO - Setting next_dagrun for ingest_to_bronze to None, run_after=None
+[2025-10-19T18:40:44.561+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_ingest_to_bronze_dag.py took 0.294 seconds
+[2025-10-19T18:41:15.511+0000] {processor.py:161} INFO - Started process (PID=5572) to work on /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:41:15.512+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_ingest_to_bronze_dag.py for tasks to queue
+[2025-10-19T18:41:15.513+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:41:15.513+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:41:15.807+0000] {processor.py:840} INFO - DAG(s) 'ingest_to_bronze' retrieved from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:41:15.819+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:41:15.819+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-10-19T18:41:15.826+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:41:15.826+0000] {dag.py:3954} INFO - Setting next_dagrun for ingest_to_bronze to None, run_after=None
+[2025-10-19T18:41:15.833+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_ingest_to_bronze_dag.py took 0.325 seconds
+[2025-10-19T18:41:46.097+0000] {processor.py:161} INFO - Started process (PID=5600) to work on /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:41:46.098+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_ingest_to_bronze_dag.py for tasks to queue
+[2025-10-19T18:41:46.099+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:41:46.099+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:41:46.369+0000] {processor.py:840} INFO - DAG(s) 'ingest_to_bronze' retrieved from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:41:46.378+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:41:46.378+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-10-19T18:41:46.382+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:41:46.382+0000] {dag.py:3954} INFO - Setting next_dagrun for ingest_to_bronze to None, run_after=None
+[2025-10-19T18:41:46.388+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_ingest_to_bronze_dag.py took 0.293 seconds
+[2025-10-19T18:42:17.118+0000] {processor.py:161} INFO - Started process (PID=5628) to work on /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:42:17.120+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_ingest_to_bronze_dag.py for tasks to queue
+[2025-10-19T18:42:17.120+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:42:17.120+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:42:17.394+0000] {processor.py:840} INFO - DAG(s) 'ingest_to_bronze' retrieved from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:42:17.403+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:42:17.403+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-10-19T18:42:17.407+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:42:17.407+0000] {dag.py:3954} INFO - Setting next_dagrun for ingest_to_bronze to None, run_after=None
+[2025-10-19T18:42:17.414+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_ingest_to_bronze_dag.py took 0.298 seconds
+[2025-10-19T18:42:47.860+0000] {processor.py:161} INFO - Started process (PID=5652) to work on /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:42:47.861+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_ingest_to_bronze_dag.py for tasks to queue
+[2025-10-19T18:42:47.862+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:42:47.862+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:42:48.163+0000] {processor.py:840} INFO - DAG(s) 'ingest_to_bronze' retrieved from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:42:48.173+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:42:48.173+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-10-19T18:42:48.179+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:42:48.179+0000] {dag.py:3954} INFO - Setting next_dagrun for ingest_to_bronze to None, run_after=None
+[2025-10-19T18:42:48.187+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_ingest_to_bronze_dag.py took 0.330 seconds
+[2025-10-19T18:43:18.811+0000] {processor.py:161} INFO - Started process (PID=5684) to work on /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:43:18.813+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_ingest_to_bronze_dag.py for tasks to queue
+[2025-10-19T18:43:18.814+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:43:18.814+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:43:19.089+0000] {processor.py:840} INFO - DAG(s) 'ingest_to_bronze' retrieved from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:43:19.097+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:43:19.097+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-10-19T18:43:19.101+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:43:19.101+0000] {dag.py:3954} INFO - Setting next_dagrun for ingest_to_bronze to None, run_after=None
+[2025-10-19T18:43:19.107+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_ingest_to_bronze_dag.py took 0.299 seconds
+[2025-10-19T18:43:49.880+0000] {processor.py:161} INFO - Started process (PID=5712) to work on /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:43:49.881+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_ingest_to_bronze_dag.py for tasks to queue
+[2025-10-19T18:43:49.882+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:43:49.882+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:43:50.154+0000] {processor.py:840} INFO - DAG(s) 'ingest_to_bronze' retrieved from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:43:50.164+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:43:50.164+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-10-19T18:43:50.168+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:43:50.168+0000] {dag.py:3954} INFO - Setting next_dagrun for ingest_to_bronze to None, run_after=None
+[2025-10-19T18:43:50.174+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_ingest_to_bronze_dag.py took 0.296 seconds
+[2025-10-19T18:44:20.847+0000] {processor.py:161} INFO - Started process (PID=5740) to work on /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:44:20.849+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_ingest_to_bronze_dag.py for tasks to queue
+[2025-10-19T18:44:20.849+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:44:20.849+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:44:21.119+0000] {processor.py:840} INFO - DAG(s) 'ingest_to_bronze' retrieved from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:44:21.127+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:44:21.127+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-10-19T18:44:21.131+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:44:21.131+0000] {dag.py:3954} INFO - Setting next_dagrun for ingest_to_bronze to None, run_after=None
+[2025-10-19T18:44:21.137+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_ingest_to_bronze_dag.py took 0.292 seconds
+[2025-10-19T18:44:51.971+0000] {processor.py:161} INFO - Started process (PID=5768) to work on /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:44:51.972+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_ingest_to_bronze_dag.py for tasks to queue
+[2025-10-19T18:44:51.973+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:44:51.973+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:44:52.242+0000] {processor.py:840} INFO - DAG(s) 'ingest_to_bronze' retrieved from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:44:52.251+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:44:52.251+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-10-19T18:44:52.255+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:44:52.255+0000] {dag.py:3954} INFO - Setting next_dagrun for ingest_to_bronze to None, run_after=None
+[2025-10-19T18:44:52.261+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_ingest_to_bronze_dag.py took 0.293 seconds
+[2025-10-19T18:45:22.693+0000] {processor.py:161} INFO - Started process (PID=5792) to work on /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:45:22.695+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_ingest_to_bronze_dag.py for tasks to queue
+[2025-10-19T18:45:22.696+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:45:22.695+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:45:23.012+0000] {processor.py:840} INFO - DAG(s) 'ingest_to_bronze' retrieved from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:45:23.024+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:45:23.024+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-10-19T18:45:23.029+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:45:23.029+0000] {dag.py:3954} INFO - Setting next_dagrun for ingest_to_bronze to None, run_after=None
+[2025-10-19T18:45:23.038+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_ingest_to_bronze_dag.py took 0.348 seconds
+[2025-10-19T18:45:53.784+0000] {processor.py:161} INFO - Started process (PID=5824) to work on /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:45:53.785+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_ingest_to_bronze_dag.py for tasks to queue
+[2025-10-19T18:45:53.786+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:45:53.786+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:45:54.053+0000] {processor.py:840} INFO - DAG(s) 'ingest_to_bronze' retrieved from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:45:54.061+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:45:54.061+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-10-19T18:45:54.065+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:45:54.065+0000] {dag.py:3954} INFO - Setting next_dagrun for ingest_to_bronze to None, run_after=None
+[2025-10-19T18:45:54.071+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_ingest_to_bronze_dag.py took 0.289 seconds
+[2025-10-19T18:46:24.739+0000] {processor.py:161} INFO - Started process (PID=5852) to work on /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:46:24.741+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_ingest_to_bronze_dag.py for tasks to queue
+[2025-10-19T18:46:24.741+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:46:24.741+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:46:25.010+0000] {processor.py:840} INFO - DAG(s) 'ingest_to_bronze' retrieved from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:46:25.019+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:46:25.019+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-10-19T18:46:25.023+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:46:25.023+0000] {dag.py:3954} INFO - Setting next_dagrun for ingest_to_bronze to None, run_after=None
+[2025-10-19T18:46:25.029+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_ingest_to_bronze_dag.py took 0.292 seconds
+[2025-10-19T18:46:55.722+0000] {processor.py:161} INFO - Started process (PID=5880) to work on /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:46:55.724+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_ingest_to_bronze_dag.py for tasks to queue
+[2025-10-19T18:46:55.724+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:46:55.724+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:46:56.034+0000] {processor.py:840} INFO - DAG(s) 'ingest_to_bronze' retrieved from /opt/airflow/dags/local_ingest_to_bronze_dag.py
+[2025-10-19T18:46:56.044+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:46:56.044+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-10-19T18:46:56.048+0000] {logging_mixin.py:188} INFO - [2025-10-19T18:46:56.048+0000] {dag.py:3954} INFO - Setting next_dagrun for ingest_to_bronze to None, run_after=None
+[2025-10-19T18:46:56.054+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_ingest_to_bronze_dag.py took 0.334 seconds
