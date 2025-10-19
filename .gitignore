@@ -1,4 +1,6 @@
 venv/
 .env
-
-
+logs/
+*.logs
+*.tmp
+*.pid
