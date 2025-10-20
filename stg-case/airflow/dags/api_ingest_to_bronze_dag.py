@@ -24,7 +24,7 @@ SF_CFG = dict(
     account=os.getenv("SNOWFLAKE_ACCOUNT"),
     warehouse=os.getenv("SNOWFLAKE_WAREHOUSE"),
     database=os.getenv("SNOWFLAKE_DATABASE"),
-    schema=os.getenv("SNOWFLAKE_SCHEMA"),  # pode estar BRONZE aqui; não tem problema
+    schema=os.getenv("SNOWFLAKE_SCHEMA"),
     role=os.getenv("SNOWFLAKE_ROLE", None),
 )
 
@@ -109,7 +109,7 @@ def fetch_restcountries_to_parquet():
 
     out = out.dropna(subset=["ISO_CODE"]).reset_index(drop=True)
 
-    # Salva Parquet (idempotente: sobrescreve)
+
     out.to_parquet(API_PARQUET_PATH, index=False)
 
 # -----------------------------------------------------------------------------

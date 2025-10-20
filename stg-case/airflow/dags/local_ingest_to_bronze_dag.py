@@ -130,11 +130,11 @@ def load_parquet_to_snowflake():
 
         def clean_col(c: str) -> str:
             c = str(c).strip().lower().replace(" ", "_")
-            c = re.sub(r"[^a-z0-9_]", "_", c)   # só letras, números e _
+            c = re.sub(r"[^a-z0-9_]", "_", c) 
             c = re.sub(r"_+", "_", c).strip("_")
-            if not c or re.match(r"^[^a-z_]", c):  # não pode começar por número
+            if not c or re.match(r"^[^a-z_]", c): 
                 c = f"c_{c or 'col'}"
-            c = c[:240]  # garante limite & margem para aspas e sufixos
+            c = c[:240] 
             return c.upper()
 
         for path in files:
